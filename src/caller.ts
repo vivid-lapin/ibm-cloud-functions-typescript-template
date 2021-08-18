@@ -1,9 +1,8 @@
-import axios from "axios"
+import Openwhisk from "openwhisk"
 import * as $ from "zod"
 
 const validator = $.object({
-  webhookUrl: $.string(),
-  message: $.string(),
+  target_action_name: $.string(),
 })
 
 const main = async (params: unknown) => {
@@ -12,9 +11,15 @@ const main = async (params: unknown) => {
     console.error(`Bad argument: ${JSON.stringify(validated.error)}`)
     return
   }
-  await axios.post(validated.data.webhookUrl, {
-    content: validated.data.message,
+  const ow = Openwhisk()
+  const r = await ow.actions.invoke({
+    name: validated.data.target_action_name,
+    blocking: false,
+    params: {
+      message: "Call from caller",
+    },
   })
+  console.info(r.activationId)
 }
 
 exports.main = main

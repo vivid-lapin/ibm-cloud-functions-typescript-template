@@ -1,33 +1,32 @@
 {
-  "name": "ibm-cloud-functions-typescript-rollup",
+  "name": "ibm-cloud-functions-typescript",
   "version": "1.0.0",
-  "description": "Template for IBM Cloud Functions with TypeScript and rollup.",
+  "description": "Template for IBM Cloud Functions with TypeScript and webpack.",
   "author": "ci7lus <7887955+ci7lus@users.noreply.github.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/vivid-lapin/ibm-cloud-functions-typescript-rollup.git"
+    "url": "https://github.com/vivid-lapin/ibm-cloud-functions-typescript-template.git"
   },
   "scripts": {
     "deploy": "ibmcloud fn deploy --manifest manifest.yaml",
-    "build": "rollup -c",
+    "build": "webpack --color",
     "lint": "prettier --check './src/**/*.{js,ts,tsx}'",
     "format": "prettier --write './src/**/*.{js,ts,tsx}'"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^20.0.0",
-    "@rollup/plugin-json": "^4.1.0",
-    "@rollup/plugin-node-resolve": "^13.0.4",
     "@types/node": "^16.6.1",
     "esbuild": "^0.12.20",
+    "esbuild-loader": "^2.15.0",
     "prettier": "^2.3.2",
-    "rollup": "^2.56.2",
-    "rollup-plugin-esbuild": "^4.5.0",
     "ts-node": "^10.2.0",
-    "typescript": "^4.3.5"
+    "typescript": "^4.3.5",
+    "webpack": "^5.50.0",
+    "webpack-cli": "^4.8.0"
   },
   "dependencies": {
     "axios": "^0.21.1",
+    "openwhisk": "^3.21.4",
     "zod": "^3.7.2"
   }
 }

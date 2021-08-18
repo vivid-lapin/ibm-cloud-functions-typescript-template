@@ -5,12 +5,28 @@ packages:
     actions:
       test:
         function: dist/webhook.js
-        docker: openwhisk/action-nodejs-v14
+        runtime: node:12
         web: true
+        limits:
+          memorySize: 128
+          timeout: 5000
+          concurrentActivations: 2
         inputs:
           webhookUrl:
             required: true
             value: $WEBHOOK_URL
+      caller:
+        function: dist/caller.js
+        runtime: node:12
+        web: true
+        limits:
+          memorySize: 128
+          timeout: 5000
+          concurrentActivations: 2
+        inputs:
+          target_action_name:
+            required: true
+            value: $TARGET_ACTION_NAME
     apis:
       test-apiname:
         test-basepath:
