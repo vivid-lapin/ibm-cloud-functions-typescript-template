@@ -1,0 +1,20 @@
+packages:
+  test:
+    version: 1.0
+    license: MIT
+    actions:
+      test:
+        function: dist/webhook.js
+        docker: openwhisk/action-nodejs-v14
+        web: true
+        inputs:
+          webhookUrl:
+            required: true
+            value: $WEBHOOK_URL
+    apis:
+      test-apiname:
+        test-basepath:
+          test-relative:
+            test:
+              method: GET
+              response: json
