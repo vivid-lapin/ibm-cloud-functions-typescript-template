@@ -32,6 +32,9 @@ const config: webpack.Configuration = {
     // skip openwhisk bundle because environment already has it
     openwhisk: "commonjs openwhisk",
   },
+  optimization: {
+    minimize: true,
+  },
 }
 
 export default config
