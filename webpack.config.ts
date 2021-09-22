@@ -1,4 +1,5 @@
 import path from "path"
+import { ESBuildMinifyPlugin } from "esbuild-loader"
 import webpack from "webpack"
 
 const config: webpack.Configuration = {
@@ -33,7 +34,7 @@ const config: webpack.Configuration = {
     openwhisk: "commonjs openwhisk",
   },
   optimization: {
-    minimize: true,
+    minimizer: [new ESBuildMinifyPlugin({ target: "es2018" })],
   },
 }
 
