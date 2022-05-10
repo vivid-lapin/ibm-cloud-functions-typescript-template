@@ -2,22 +2,20 @@
 
 Template for IBM Cloud Functions with TypeScript and webpack.
 
-[Rollup version](https://github.com/vivid-lapin/ibm-cloud-functions-typescript-rollup)
-
 ## How to use
 
 1. Register [IBM Cloud Lite](https://cloud.ibm.com/registration/startUpgradeToLite)
    - Get API Key on [https://cloud.ibm.com/iam/apikeys](https://cloud.ibm.com/iam/apikeys).
 1. Install `ibmcloud` cli & login
    ```bash
-      brew install ibm-cloud-cli
-      # it conflicts with /Application/Docker.app that not installed by brew cask
-      ibmcloud plugin install cloud-functions
-      ibmcloud login --apikey <APIKEY>
-      ibmcloud resource groups
-      ibmcloud target -g <default group id>
-      ibmcloud fn namespace list
-      ibmcloud fn namespace target <namespace which u want to use>
+   brew install ibm-cloud-cli
+   # it conflicts with /Application/Docker.app that not installed by brew cask
+   ibmcloud plugin install cloud-functions
+   ibmcloud login --apikey <APIKEY>
+   ibmcloud resource groups
+   ibmcloud target -g <default group id>
+   ibmcloud fn namespace list
+   ibmcloud fn namespace target <namespace which u want to use>
    ```
 1. Use [this template](https://github.com/vivid-lapin/ibm-cloud-functions-typescript-template) and clone a repository
    ```bash
