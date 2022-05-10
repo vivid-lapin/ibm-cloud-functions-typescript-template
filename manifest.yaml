@@ -5,7 +5,7 @@ packages:
     actions:
       test:
         function: dist/webhook.js
-        runtime: node:12
+        runtime: node:16
         web: true
         limits:
           memorySize: 128
@@ -17,7 +17,7 @@ packages:
             value: $WEBHOOK_URL
       caller:
         function: dist/caller.js
-        runtime: node:12
+        runtime: node:16
         web: true
         limits:
           memorySize: 128

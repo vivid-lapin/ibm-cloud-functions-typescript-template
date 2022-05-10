@@ -3,7 +3,7 @@ import { ESBuildMinifyPlugin } from "esbuild-loader"
 import webpack from "webpack"
 
 const config: webpack.Configuration = {
-  target: "node12",
+  target: "node16",
   entry: {
     webhook: "./src/webhook.ts",
     caller: "./src/caller.ts",
@@ -20,7 +20,7 @@ const config: webpack.Configuration = {
         loader: "esbuild-loader",
         options: {
           loader: "ts",
-          target: "es2018",
+          target: "es2020",
         },
       },
     ],
@@ -34,7 +34,7 @@ const config: webpack.Configuration = {
     openwhisk: "commonjs openwhisk",
   },
   optimization: {
-    minimizer: [new ESBuildMinifyPlugin({ target: "es2018" })],
+    minimizer: [new ESBuildMinifyPlugin({ target: "es2020" })],
   },
 }
 
